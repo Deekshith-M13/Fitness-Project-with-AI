@@ -1,0 +1,44 @@
+.recommendation-card {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.recommendation-card h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.recommendation-section {
+  margin-bottom: 24px;
+}
+
+.recommendation-section h3 {
+  color: #444;
+  margin-bottom: 10px;
+  border-left: 4px solid #3f51b5;
+  padding-left: 10px;
+}
+
+.recommendation-section ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.recommendation-section p {
+  margin: 0;
+  padding-left: 10px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.recommendation-summary {
+  background-color: #e3f2fd;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
