@@ -81,7 +81,7 @@ For OAuth2/JWT (mentioned in Gateway config), ensure Keycloak or similar is runn
    - Access Eureka Dashboard: [http://localhost:9000](http://localhost:9000)
    - Test API Gateway endpoint: [http://localhost:2000/api/user/**](http://localhost:2000) (replace with actual paths).
   
-                       +-----------------+
+     +-----------------+
                        |  React Frontend |
                        |      (5173)     |
                        +-----------------+
