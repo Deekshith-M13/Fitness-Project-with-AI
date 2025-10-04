@@ -80,6 +80,49 @@ For OAuth2/JWT (mentioned in Gateway config), ensure Keycloak or similar is runn
 5. **Verify Setup**:
    - Access Eureka Dashboard: [http://localhost:9000](http://localhost:9000)
    - Test API Gateway endpoint: [http://localhost:2000/api/user/**](http://localhost:2000) (replace with actual paths).
+  
+                       +-----------------+
+                       |  React Frontend |
+                       |      (5173)     |
+                       +-----------------+
+                              |
+                              v
+                       +-----------------+
+                       |   API Gateway   |
+                       |      (2000)     |
+                       +-----------------+
+                      /     |     \
+                     /      |      \
+                    v       v       v
+     +----------------+  +----------------+  
+     |  User Service  |  | Activity Serv. |  
+     |   (8080)       |  |    (8081)      |  
+     | PostgreSQL     |  |   MongoDB      |  
+     +-------+--------+  +----------------+  
+             |                    |              
+             |                    v              
+             |              +-----------------+  
+             |              |    RabbitMQ     |  
+             |              |  (Async Events) |  
+             |              +-----------------+  
+             |                       |              
+             |                       v              
+             |              +----------------+  
+             |              |   AI Service   |  
+             |              |    (8082)      |  
+             |              |   MongoDB      |  
+             |              +----------------+  
+             |                    ^
+             |                    |
+    +----------------+  +----------------+  
+    |  Config Server |  | Eureka Server  |<-- All microservices register here
+    |     (8888)     |  |      (9000)    |
+    | (Properties to:|  +----------------+
+    |  User/Act/AI/GW|           ^
+    +----------------+           |
+             ^                   |
+             |                   |
+             +-------------------+
 
 
 ## Configuration
@@ -189,6 +232,18 @@ curl -X POST http://localhost:2000/api/activities/log \
 <img width="923" height="480" alt="Screenshot 2025-10-04 160341" src="https://github.com/user-attachments/assets/2a4ec80e-ff24-4f99-9e93-1a4958242864" />
 <img width="951" height="481" alt="Screenshot 2025-10-04 160547" src="https://github.com/user-attachments/assets/883edd94-f59f-421d-836b-1453eb30242f" />
 <img width="947" height="487" alt="Screenshot 2025-10-04 160648" src="https://github.com/user-attachments/assets/bd6903f2-1e3f-4d11-be1a-9f71817c0c6d" />
+<img width="905" height="350" alt="Screenshot 2025-10-04 160731" src="https://github.com/user-attachments/assets/240ba1ed-3a16-4f79-99a0-6e5bb9cad4f4" />
+<img width="925" height="336" alt="Screenshot 2025-10-04 160817" src="https://github.com/user-attachments/assets/2d0b51f9-ba59-4a8d-aaae-5d7cd76e277a" />
+<img width="911" height="446" alt="Screenshot 2025-10-04 160956" src="https://github.com/user-attachments/assets/b12fbe6d-3063-41b2-823e-50d021aa92c7" />
+<img width="778" height="489" alt="Screenshot 2025-10-04 161041" src="https://github.com/user-attachments/assets/a844c148-8171-4946-8cd6-e692de688ac4" />
+<img width="776" height="326" alt="Screenshot 2025-10-04 161155" src="https://github.com/user-attachments/assets/24aab6cf-e3ed-4d9f-bc8f-7589a3c6c5de" />
+<img width="773" height="389" alt="Screenshot 2025-10-04 161231" src="https://github.com/user-attachments/assets/cdac83e3-98cd-46ce-8735-1578ba3817c9" />
+
+
+
+
+
+
 
 
 
