@@ -81,48 +81,48 @@ For OAuth2/JWT (mentioned in Gateway config), ensure Keycloak or similar is runn
    - Access Eureka Dashboard: [http://localhost:9000](http://localhost:9000)
    - Test API Gateway endpoint: [http://localhost:2000/api/user/**](http://localhost:2000) (replace with actual paths).
   
-    +-----------------+
-|  React Frontend |
-|      (5173)     |
-+-----------------+
-|
-v
-+-----------------+
-|   API Gateway   |
-|      (2000)     |
-+-----------------+
-/     |     
-/      |      
-v       v       v
-+----------------+  +----------------+
-|  User Service  |  | Activity Serv. |
-|   (8080)       |  |    (8081)      |
-| PostgreSQL     |  |   MongoDB      |
-+-------+--------+  +----------------+
-|                    |
-|                    v
-|              +-----------------+
-|              |    RabbitMQ     |
-|              |  (Async Events) |
-|              +-----------------+
-|                       |
-|                       v
-|              +----------------+
-|              |   AI Service   |
-|              |    (8082)      |
-|              |   MongoDB      |
-|              +----------------+
-|                    ^
-|                    |
-+----------------+  +----------------+
-|  Config Server |  | Eureka Server  |<-- All microservices register here
-|     (8888)     |  |      (9000)    |
-| (Properties to:|  +----------------+
-|  User/Act/AI/GW|           ^
-+----------------+           |
-^                   |
-|                   |
-+-------------------+
+                          +-----------------+
+                          |  React Frontend |
+                          |      (5173)     |
+                          +-----------------+
+                                   |
+                                   v
+                          +-----------------+
+                          |   API Gateway   |
+                          |      (2000)     |
+                          +-----------------+
+                            /       |       \
+                           /        |        \
+                          v         v         v
+                 +----------------+  +----------------+
+                 |   User Service |  | Activity Serv. |
+                 |      (8080)    |  |     (8081)     |
+                 |   PostgreSQL   |  |     MongoDB    |
+                 +-------+--------+  +----------------+
+                         |                   |
+                         |                   v
+                         |           +-----------------+
+                         |           |    RabbitMQ     |
+                         |           |  (Async Events) |
+                         |           +-----------------+
+                         |                   |
+                         v                   |
+                 +----------------+          |
+                 |    AI Service  |<---------+
+                 |      (8082)    |
+                 |     MongoDB    |
+                 +----------------+
+                         ^
+                         |
+       +-----------------+-----------------+
+       |                                   |
++----------------+                  +----------------+
+| Config Server  |                  | Eureka Server  |
+|     (8888)     |                  |     (9000)     |
+| (Properties to:|                  |  All microservices
+| User/Act/AI/GW)|                  |   register here)|
++----------------+                  +----------------+
+
 
 ## Configuration
 
