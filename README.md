@@ -116,11 +116,11 @@ For OAuth2/JWT (mentioned in Gateway config), ensure Keycloak or similar is runn
                             |
               +-------------+---------------+
               |                             |
-         +----------------+            +----------------+
-         | Config Server  |            | Eureka Server  |
-         |     (8888)     |            |     (9000)     |
-         | (Properties to:|            |  All microservices
-         | User/Act/AI/GW)|            |   register here)|
+         +----------------+            +------------------+
+         | Config Server  |            | Eureka Server    |
+         |     (8888)     |            |     (9000)       |
+         | (Properties to:|            |All microservices |
+         | User/Act/AI/GW)|            |   register here) |
          +----------------+            +----------------+
 
 
